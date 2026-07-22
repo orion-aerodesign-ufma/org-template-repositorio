@@ -1,0 +1,73 @@
+# ============================================================
+# Orion AeroDesign - Metadados do Repositório
+# ============================================================
+# Este arquivo reúne informações padronizadas sobre o repositório
+# e deve ser atualizado ao criar um novo projeto a partir do template.
+# Pode ser utilizado futuramente por automações, APIs e agentes de IA.
+#
+# scope:
+#   orion  = repositório institucional/transversal
+#   sector = repositório pertencente a um setor específico
+#
+# sector:
+#   orion  = institucional/transversal
+#   estint = Estrutura e Integração
+#   eltc   = Eletrônica e TT&C
+#   gercon = Gerência e Comunicação
+#
+# specialty identifica a especialidade do setor e pode ser null.
+#
+# category:
+#   fw = firmware | sw = software | sim = simulação | cad = CAD
+#   data = dados | lib = biblioteca | tool = ferramenta
+#   docs = documentação | infra = infraestrutura | hw = hardware
+#
+# request_id identifica a Ficha de Requisição relacionada.
+# maintainers permanece vazio enquanto não houver responsáveis
+# oficialmente designados.
+#
+# Este template é público como exceção à política de repositórios
+# privados por padrão, pois também funciona como repositório-piloto.
+# ============================================================
+
+schema_version: "1.0"
+
+repository:
+  id: "org-template-repositorio"
+  name: "Template de Repositório"
+  description: "Repositório-modelo oficial da Orion AeroDesign para criação padronizada de novos projetos."
+
+organization:
+  name: "Orion AeroDesign"
+  github: "orion-aerodesign-ufma"
+
+classification:
+  scope: "orion"
+  sector: "orion"
+  specialty: null
+  category: "infra"
+
+governance:
+  request_id: "RQS-ATV-GECO-REP-261001"
+  responsible_team: "Gerência e Comunicação"
+  maintainers: []
+  status: "active"
+
+repository_settings:
+  visibility: "public"
+  template: true
+  default_branch: "main"
+  license: "MIT"
+
+development:
+  pull_requests_required: true
+  continuous_integration: true
+  devcontainer: true
+
+documentation:
+  readme: "README.md"
+  contributing: "CONTRIBUTING.md"
+  security: "SECURITY.md"
+  architecture: "docs/architecture.md"
+  setup: "docs/setup.md"
+  decisions: "docs/decisions.md"
