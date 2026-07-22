@@ -1,0 +1,109 @@
+# ==================================================
+# Orion AeroDesign - .gitignore base
+# ==================================================
+# Este arquivo deve ser adaptado conforme a tecnologia
+# utilizada pelo projeto.
+# ==================================================
+
+
+# Variáveis de ambiente e informações sensíveis
+
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+*.p12
+*.pfx
+
+
+# Arquivos do sistema operacional
+
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+
+# Arquivos temporários
+
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+tmp/
+temp/
+
+
+# Logs
+
+*.log
+logs/
+
+
+# Ambientes e caches
+
+.cache/
+
+
+# Python
+
+__pycache__/
+*.py[cod]
+
+.venv/
+venv/
+env/
+
+
+# Node.js / JavaScript / TypeScript
+
+node_modules/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# Java / Maven / Gradle
+
+target/
+
+*.class
+
+.gradle/
+
+
+# .NET / C#
+
+bin/
+obj/
+
+
+# Compilação e artefatos gerados
+
+build/
+dist/
+out/
+
+
+# Cobertura de testes
+
+coverage/
+
+
+# IDEs
+
+.idea/
+*.iml
+
+
+# Arquivos compilados comuns
+
+*.o
+*.obj
+*.exe
+*.dll
