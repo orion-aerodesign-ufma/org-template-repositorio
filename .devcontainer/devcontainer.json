@@ -1,0 +1,30 @@
+// ============================================================
+// Orion AeroDesign - Dev Container Base
+// ============================================================
+// Define um ambiente de desenvolvimento padronizado para projetos
+// criados a partir deste template.
+//
+// Este arquivo deve ser adaptado conforme a tecnologia do projeto.
+// Por exemplo, projetos Java, Python, Node.js ou .NET podem trocar
+// a imagem ou adicionar ferramentas específicas.
+//
+// O ambiente base utiliza Ubuntu e já fornece ferramentas comuns
+// de desenvolvimento, como Git.
+// ============================================================
+
+{
+  "name": "Orion AeroDesign - Ambiente Base",
+
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "files.insertFinalNewline": true,
+        "files.trimTrailingWhitespace": true
+      }
+    }
+  },
+
+  "remoteUser": "vscode"
+}
