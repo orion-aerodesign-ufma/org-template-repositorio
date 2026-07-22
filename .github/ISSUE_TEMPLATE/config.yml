@@ -1,0 +1,9 @@
+# ============================================================
+# Orion AeroDesign - Configuração dos templates de Issue
+# ============================================================
+# Mantém os formulários padronizados como principal forma de
+# registro de atividades e erros dentro dos repositórios.
+# ============================================================
+
+blank_issues_enabled: false
+contact_links: []
