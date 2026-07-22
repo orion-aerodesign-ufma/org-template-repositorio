@@ -32,19 +32,31 @@ body:
       label: Setor
       description: Selecione o setor responsável pela atividade.
       options:
-        - Orion - Institucional/Transversal
         - Estrutura e Integração
         - Eletrônica e TT&C
         - Gerência e Comunicação
     validations:
       required: true
 
-  - type: input
+  - type: dropdown
     id: specialty
     attributes:
       label: Especialidade
-      description: Informe a especialidade responsável, quando aplicável.
-      placeholder: Ex. Aviônica, Gestão de Conhecimento, Aerodinâmica e Estabilidade
+      description: Selecione a especialidade responsável, quando aplicável.
+      options:
+        - Aerodinâmica e Estabilidade
+        - Estrutura e Carga
+        - CAD e Integração Estrutural
+        - Avaliação de Desempenho de Voo - Piloto
+        - Integração de Componentes Elétricos e Eletrônicos
+        - Telemetria, Rastreio e Comando - TT&C
+        - Aviônica
+        - Avaliação de Controle de Voo - Piloto
+        - Marketing e Comunicação
+        - Network e Patrocínios
+        - Gestão de Conhecimento
+    validations:
+      required: false
 
   - type: textarea
     id: objective
