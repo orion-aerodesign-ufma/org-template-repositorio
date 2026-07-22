@@ -1,0 +1,87 @@
+# ============================================================
+# Orion AeroDesign - Formulário de Atividade
+# ============================================================
+# Utilizado para registrar no GitHub a execução de uma atividade,
+# preferencialmente vinculada a uma Ficha de Requisição.
+# A Ficha continua sendo o documento oficial; a Issue acompanha
+# operacionalmente o trabalho dentro do repositório.
+# ============================================================
+
+name: Atividade / Ficha de Requisição
+description: Registrar uma atividade a ser executada no repositório.
+title: "[ATIVIDADE] "
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Preencha as informações abaixo para registrar e acompanhar a atividade.
+
+  - type: input
+    id: request_id
+    attributes:
+      label: ID da Ficha de Requisição
+      description: Informe o identificador da Ficha relacionada à atividade.
+      placeholder: RQS-ATV-GECO-REP-261001
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sector
+    attributes:
+      label: Setor
+      description: Selecione o setor responsável pela atividade.
+      options:
+        - Orion - Institucional/Transversal
+        - Estrutura e Integração
+        - Eletrônica e TT&C
+        - Gerência e Comunicação
+    validations:
+      required: true
+
+  - type: input
+    id: specialty
+    attributes:
+      label: Especialidade
+      description: Informe a especialidade responsável, quando aplicável.
+      placeholder: Ex. Aviônica, Gestão de Conhecimento, Aerodinâmica e Estabilidade
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objetivo
+      description: Descreva de forma clara o que deve ser realizado.
+      placeholder: Descreva o objetivo principal da atividade.
+    validations:
+      required: true
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Tarefas
+      description: Liste as principais etapas necessárias para concluir a atividade.
+      placeholder: |
+        - [ ] Primeira tarefa
+        - [ ] Segunda tarefa
+        - [ ] Terceira tarefa
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Critérios de conclusão
+      description: Informe como será possível considerar esta atividade concluída.
+      placeholder: |
+        - [ ] Implementação concluída
+        - [ ] Testes realizados
+        - [ ] Documentação atualizada
+    validations:
+      required: true
+
+  - type: textarea
+    id: observations
+    attributes:
+      label: Observações
+      description: Adicione informações, dependências, riscos ou referências relevantes.
+      placeholder: Não se aplica.
