@@ -1,0 +1,102 @@
+# ============================================================
+# Orion AeroDesign - Integração Contínua
+# ============================================================
+# CI base do template institucional.
+# Executa verificações automáticas em Pull Requests para a main.
+#
+# Como este repositório não possui uma stack específica, esta CI
+# valida a estrutura e os arquivos obrigatórios do template.
+# Projetos reais devem adaptar este workflow para executar também
+# build, lint e testes adequados à tecnologia utilizada.
+# ============================================================
+
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+# O workflow precisa apenas ler o conteúdo do repositório.
+# Nenhuma permissão de escrita é necessária.
+permissions:
+  contents: read
+
+jobs:
+  validate-template:
+    name: Validar estrutura do repositório
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar conteúdo do repositório
+        uses: actions/checkout@v6
+
+      - name: Verificar arquivos obrigatórios
+        shell: bash
+        run: |
+          required_files=(
+            "README.md"
+            "LICENSE"
+            ".gitignore"
+            "CONTRIBUTING.md"
+            "SECURITY.md"
+            "repository.yaml"
+            ".github/pull_request_template.md"
+            ".github/ISSUE_TEMPLATE/atividade.yml"
+            ".github/ISSUE_TEMPLATE/bug.yml"
+            ".github/ISSUE_TEMPLATE/config.yml"
+          )
+
+          missing=0
+
+          for file in "${required_files[@]}"; do
+            if [ -f "$file" ]; then
+              echo "OK: $file"
+            else
+              echo "ERRO: arquivo ausente -> $file"
+              missing=1
+            fi
+          done
+
+          if [ "$missing" -ne 0 ]; then
+            echo "A estrutura obrigatória do repositório está incompleta."
+            exit 1
+          fi
+
+          echo "Todos os arquivos obrigatórios foram encontrados."
+
+      - name: Validar sintaxe dos arquivos YAML
+        shell: bash
+        run: |
+          ruby -e "
+            require 'yaml'
+
+            files = [
+              'repository.yaml',
+              '.github/ISSUE_TEMPLATE/atividade.yml',
+              '.github/ISSUE_TEMPLATE/bug.yml',
+              '.github/ISSUE_TEMPLATE/config.yml'
+            ]
+
+            files.each do |file|
+              YAML.load_file(file)
+              puts \"OK: #{file}\"
+            end
+          "
+
+      - name: Verificar arquivos sensíveis versionados
+        shell: bash
+        run: |
+          sensitive_files=$(git ls-files | grep -E '(^|/)\.env($|\.)|\.pem$|\.p12$|\.pfx$' || true)
+
+          if [ -n "$sensitive_files" ]; then
+            echo "ERRO: possíveis arquivos sensíveis estão versionados:"
+            echo "$sensitive_files"
+            exit 1
+          fi
+
+          echo "Nenhum arquivo sensível bloqueado foi encontrado."
+
+      - name: Finalizar validação
+        run: echo "CI do template concluída com sucesso."
