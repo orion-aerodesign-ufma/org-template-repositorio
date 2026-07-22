@@ -1,0 +1,88 @@
+# ============================================================
+# Orion AeroDesign - Relato de Erro
+# ============================================================
+# Utilizado para registrar falhas encontradas durante o
+# desenvolvimento, teste ou utilização de um projeto.
+# A Ficha de Requisição é informada quando houver relação.
+# ============================================================
+
+name: Relato de erro
+description: Registrar um erro ou comportamento inesperado no projeto.
+title: "[BUG] "
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Descreva o problema com informações suficientes para que outra pessoa consiga reproduzi-lo e analisá-lo.
+
+  - type: input
+    id: request_id
+    attributes:
+      label: ID da Ficha de Requisição
+      description: Informe a Ficha relacionada, quando existir.
+      placeholder: RQS-ATV-GECO-REP-261001
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Descrição do problema
+      description: Explique de forma clara o erro encontrado.
+      placeholder: Descreva o que aconteceu.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Passos para reproduzir
+      description: Informe como reproduzir o problema.
+      placeholder: |
+        1. Executar...
+        2. Acessar...
+        3. Realizar...
+        4. O erro acontece.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento esperado
+      description: Explique o que deveria acontecer.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Comportamento observado
+      description: Explique o que aconteceu no lugar do comportamento esperado.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Ambiente
+      description: Informe dados relevantes do ambiente onde o erro ocorreu.
+      placeholder: |
+        Sistema operacional:
+        Versão:
+        Hardware:
+        Software/linguagem:
+        Outras informações:
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidências
+      description: Adicione mensagens de erro, logs, imagens ou outras evidências, quando disponíveis.
+      placeholder: Não se aplica.
+
+  - type: textarea
+    id: observations
+    attributes:
+      label: Observações adicionais
+      description: Adicione qualquer outra informação relevante.
+      placeholder: Não se aplica.
